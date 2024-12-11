@@ -3,6 +3,7 @@ import { StepWelcome } from "@/components/steps-welcome"
 import { colors } from "@/styles/colors"
 import { fontFamily } from "@/styles/font-family"
 import { INSTRUCTIONS_WELCOME } from "@/utils/constants"
+import { router } from "expo-router"
 import { Image, StyleSheet, Text, View } from "react-native"
 
 const s = StyleSheet.create({
@@ -33,7 +34,7 @@ export default function App() {
         Tenha cupons de vantagem para usar em seus estabelecimentos favoritos!
       </Text>
       <StepWelcome instructions={INSTRUCTIONS_WELCOME} />
-      <Button>
+      <Button onPress={() => router.navigate("/(home)")}>
         <Button.Title>Começar</Button.Title>
       </Button>
     </View>
