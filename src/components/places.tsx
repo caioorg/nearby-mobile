@@ -2,6 +2,7 @@ import { colors } from "@/styles/colors"
 import { fontFamily } from "@/styles/font-family"
 import { FontAwesome5 } from "@expo/vector-icons"
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet"
+import { router } from "expo-router"
 import { useRef } from "react"
 import {
   Image,
@@ -129,7 +130,12 @@ export function Places(args: PlacesProps) {
       <BottomSheetFlatList
         data={args.data}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Place data={item} />}
+        renderItem={({ item }) => (
+          <Place
+            data={item}
+            onPress={() => router.navigate(`/(home)/market/${item.id}`)}
+          />
+        )}
         contentContainerStyle={s.content}
         ListHeaderComponent={() => (
           <Text style={s.title}>Explore locais perto de vocês</Text>

@@ -4,6 +4,7 @@ import { api } from "@/services/api"
 import { colors } from "@/styles/colors"
 import { fontFamily } from "@/styles/font-family"
 import * as Location from "expo-location"
+import { router } from "expo-router"
 import { useEffect, useState } from "react"
 import { Text, View } from "react-native"
 import MapView, { Callout, Marker } from "react-native-maps"
@@ -101,7 +102,9 @@ export default function HomeScreen() {
             }}
             image={require("@/assets/pin.png")}
           >
-            <Callout>
+            <Callout
+              onPress={() => router.navigate(`/(home)/market/${market.id}`)}
+            >
               <View>
                 <Text
                   style={{
