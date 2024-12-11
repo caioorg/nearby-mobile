@@ -75,7 +75,7 @@ const s = StyleSheet.create({
   },
 })
 
-interface PlaceProps {
+export interface PlaceProps {
   id: string
   name: string
   description: string
@@ -97,7 +97,9 @@ function Place({
       <Image style={s.placeImage} source={{ uri: data.cover }} />
       <View style={s.placeContent}>
         <Text style={s.placeName}>{data.name}</Text>
-        <Text style={s.placeDescription}>{data.description}</Text>
+        <Text style={s.placeDescription} numberOfLines={2}>
+          {data.description}
+        </Text>
         <View style={s.placeFooter}>
           <FontAwesome5 name="ticket-alt" size={16} color={colors.red.base} />
           <Text style={s.placeTickets}>{data.coupons} cupons disponíveis</Text>
